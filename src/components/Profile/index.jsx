@@ -1,31 +1,19 @@
-import styles from './profile.module.css'
+import styles from './styles.module.css'
 
-export default function Profile({ avatar, name, bio, email, phone, githubUrl, instagramUrl }) {
-    return (
-        <div className="block">
-            <img src={avatar} alt={`${name}'s avatar`} className="profile-avatar" />
-            <div className="texto">
-                <h2 className="profile-name">{name}</h2>
-                <hr />
-                <p className="profile-bio">{bio}</p>
-                <hr />
-                <p className="profile-contact">Email: <a href={`mailto:${email}`}>{email}</a></p>
-                <hr />
-                <p className="profile-contact">Phone: <a href={`tel:${phone}`}>{phone}</a></p>
-                <div className="profile-social">
-                    <a href={githubUrl} target="_blank" rel="noopener noreferrer">
-                       <div className='btn'>
-                         <button>GitHub</button><br />
-                        <button>Instagram</button>
-                        </div>
-                    </a>
-                    <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-                        
-                        <div className='btn'>
-                        </div>
-                    </a>
-                </div>
-            </div>
+export default function Profile(props){
+    return(
+        <div className={styles.bloco}>
+            <img src={props.img} />
+            <h1 className={styles.name}>{props.name}</h1>
+            <hr className={styles.primeiro}/>
+            <p className={styles.bio} >{props.bio}</p>
+            <hr className={styles.segundo}/>
+            <p className={styles.contact}>{props.contact}</p>
+            <hr className={styles.terceiro} />
+            <p className={styles.email}>{props.email}</p>
+            <hr className={styles.quarto}/>
+            <button><a href={props.githubUrl}>Github</a></button>
+            <button><a href={props.instagramUrl}>Instagram</a></button>
         </div>
     )
 }
